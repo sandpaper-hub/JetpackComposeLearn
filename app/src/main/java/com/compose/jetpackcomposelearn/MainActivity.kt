@@ -4,13 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.compose.jetpackcomposelearn.modifierPack.ModifierBasicExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeLearnTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    MainExample(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +31,16 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MainExample(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        ModifierBasicExample()
+    }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
 @Composable
-fun GreetingPreview() {
+fun MainExamplePreview() {
     JetpackComposeLearnTheme {
-        Greeting("Android")
+        MainExample()
     }
 }
