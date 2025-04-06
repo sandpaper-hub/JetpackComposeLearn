@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.modifierPack.ColorExample
 import com.compose.jetpackcomposelearn.modifierPack.ModifierBasicExample
+import com.compose.jetpackcomposelearn.modifierPack.SizeExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,6 +37,7 @@ fun MainExample(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         ModifierBasicExample()
         ColorExample()
+        SizeExample()
     }
 }
 
