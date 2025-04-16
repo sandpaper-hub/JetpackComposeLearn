@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.modifierPack.BorderExample
+import com.compose.jetpackcomposelearn.modifierPack.ClickableExample
 import com.compose.jetpackcomposelearn.modifierPack.ClipExample
 import com.compose.jetpackcomposelearn.modifierPack.ColorExample
 import com.compose.jetpackcomposelearn.modifierPack.ModifierBasicExample
@@ -48,6 +49,7 @@ fun MainExample(modifier: Modifier = Modifier) {
         BorderExample()
         ClipExample()
         ShadowExample()
+        ClickableExample()
     }
 }
 
