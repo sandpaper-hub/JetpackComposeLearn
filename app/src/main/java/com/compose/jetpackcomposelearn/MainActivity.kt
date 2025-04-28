@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.containers.BoxExample
+import com.compose.jetpackcomposelearn.containers.CardExample
 import com.compose.jetpackcomposelearn.containers.ColumnExample
 import com.compose.jetpackcomposelearn.containers.RowExample
 import com.compose.jetpackcomposelearn.containers.SurfaceExample
@@ -38,6 +39,7 @@ fun ContainerExample(modifier: Modifier = Modifier) {
         item { ColumnExample() }
         item { RowExample() }
         item { SurfaceExample() }
+        item { CardExample() }
     }
 }
 
