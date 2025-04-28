@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.containers.BoxExample
 import com.compose.jetpackcomposelearn.containers.ColumnExample
 import com.compose.jetpackcomposelearn.containers.RowExample
+import com.compose.jetpackcomposelearn.containers.SurfaceExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,7 +36,8 @@ fun ContainerExample(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         item { BoxExample() }
         item { ColumnExample() }
-        item { RowExample()  }
+        item { RowExample() }
+        item { SurfaceExample() }
     }
 }
 
