@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.containers.BoxExample
 import com.compose.jetpackcomposelearn.containers.CardExample
 import com.compose.jetpackcomposelearn.containers.ColumnExample
+import com.compose.jetpackcomposelearn.containers.LazyColumnExample
 import com.compose.jetpackcomposelearn.containers.RowExample
 import com.compose.jetpackcomposelearn.containers.SurfaceExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
@@ -34,12 +36,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ContainerExample(modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
+    LazyColumn(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         item { BoxExample() }
         item { ColumnExample() }
         item { RowExample() }
         item { SurfaceExample() }
         item { CardExample() }
+        item { LazyColumnExample() }
     }
 }
 

@@ -37,7 +37,7 @@ fun CardExample() {
         )
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text("Заголовок карточки", style = MaterialTheme.typography.titleMedium)
+            Text("Card container", style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
             Text(contentDescription.value)
         }

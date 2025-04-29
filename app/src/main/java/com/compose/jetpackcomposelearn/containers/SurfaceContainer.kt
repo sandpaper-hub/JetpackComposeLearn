@@ -22,11 +22,11 @@ fun SurfaceExample() {
         shape = RoundedCornerShape(12.dp),
         tonalElevation = 2.dp,
         shadowElevation = 6.dp,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        color = MaterialTheme.colorScheme.primaryContainer,
         border = BorderStroke(1.dp, Color.Gray)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text("Загловок", style = MaterialTheme.typography.titleLarge)
+            Text("Surface container", style = MaterialTheme.typography.titleLarge)
             Text("Контент внутри Surface")
         }
     }
