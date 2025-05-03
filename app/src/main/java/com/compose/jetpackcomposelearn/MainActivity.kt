@@ -18,6 +18,7 @@ import com.compose.jetpackcomposelearn.containers.ColumnExample
 import com.compose.jetpackcomposelearn.containers.LazyColumnExample
 import com.compose.jetpackcomposelearn.containers.LazyHorizontalGridExample
 import com.compose.jetpackcomposelearn.containers.LazyRowExample
+import com.compose.jetpackcomposelearn.containers.LazyVerticalGridExample
 import com.compose.jetpackcomposelearn.containers.RowExample
 import com.compose.jetpackcomposelearn.containers.SurfaceExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
@@ -47,6 +48,7 @@ fun ContainerExample(modifier: Modifier = Modifier) {
         item { LazyColumnExample() }
         item { LazyRowExample() }
         item { LazyHorizontalGridExample() }
+        item { LazyVerticalGridExample() }
     }
 }
 
