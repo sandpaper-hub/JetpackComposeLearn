@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.containers.BoxExample
 import com.compose.jetpackcomposelearn.containers.CardExample
 import com.compose.jetpackcomposelearn.containers.ColumnExample
+import com.compose.jetpackcomposelearn.containers.FlowColumnExample
 import com.compose.jetpackcomposelearn.containers.LazyColumnExample
 import com.compose.jetpackcomposelearn.containers.LazyHorizontalGridExample
 import com.compose.jetpackcomposelearn.containers.LazyHorizontalStaggeredGridExample
@@ -53,6 +54,7 @@ fun ContainerExample(modifier: Modifier = Modifier) {
         item { LazyVerticalGridExample() }
         item { LazyVerticalStaggeredGridExample() }
         item { LazyHorizontalStaggeredGridExample() }
+        item { FlowColumnExample() }
     }
 }
 
