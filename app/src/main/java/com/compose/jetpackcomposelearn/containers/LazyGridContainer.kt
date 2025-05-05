@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
+@Suppress("FunctionName")
 fun LazyHorizontalGridExample() {
     val numbersList = (0..12).toList()
 
@@ -66,6 +67,7 @@ fun LazyHorizontalGridExample() {
 }
 
 @Composable
+@Suppress("FunctionName")
 fun LazyVerticalGridExample() {
     val numberList = (0..12).toList()
 
@@ -102,7 +104,6 @@ fun LazyVerticalGridExample() {
                     }
                 }
             }
-
         }
     }
 }
