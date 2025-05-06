@@ -24,6 +24,7 @@ import com.compose.jetpackcomposelearn.containers.LazyHorizontalStaggeredGridExa
 import com.compose.jetpackcomposelearn.containers.LazyRowExample
 import com.compose.jetpackcomposelearn.containers.LazyVerticalStaggeredGridExample
 import com.compose.jetpackcomposelearn.containers.LazyVerticalGridExample
+import com.compose.jetpackcomposelearn.containers.ProgramScrollExample
 import com.compose.jetpackcomposelearn.containers.RowExample
 import com.compose.jetpackcomposelearn.containers.SurfaceExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+@Suppress("FunctionName")
 fun ContainerExample(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         item { BoxExample() }
@@ -59,11 +61,13 @@ fun ContainerExample(modifier: Modifier = Modifier) {
         item { FlowColumnExample() }
         item { FlowRowExample() }
         item { IntrinsicSizeExample() }
+        item { ProgramScrollExample() }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
+@Suppress("FunctionName")
 fun ContainerExamplePreview() {
     JetpackComposeLearnTheme {
         ContainerExample()
