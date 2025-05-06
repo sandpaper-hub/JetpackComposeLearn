@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowColumn
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -37,13 +39,44 @@ fun FlowColumnExample() {
             elements.forEach { element ->
                 Box(
                     modifier = Modifier
-                        .size(100.dp, 100.dp)
+                        .size(70.dp, 70.dp)
                         .padding(8.dp)
                         .background(
                             MaterialTheme.colorScheme.primaryContainer,
                             RoundedCornerShape(4.dp)
                         ),
                     contentAlignment = Alignment.Center
+                ) {
+                    Text("$element", fontSize = 12.sp)
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+@Suppress("FunctionName")
+fun FlowRowExample() {
+    val elements = (1..16).toList()
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp)
+            .border(2.dp, MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(8.dp))
+            .padding(16.dp)
+    ) {
+        Text("FlowRow example")
+        FlowRow(maxItemsInEachRow = 4) {
+            elements.forEach { element ->
+                Box(
+                    modifier = Modifier
+                        .size(100.dp, 100.dp)
+                        .padding(8.dp)
+                        .background(
+                            MaterialTheme.colorScheme.primaryContainer,
+                            RoundedCornerShape(4.dp)
+                        ), contentAlignment = Alignment.Center
                 ) {
                     Text("Element $element")
                 }
