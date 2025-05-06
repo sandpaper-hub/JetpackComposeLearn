@@ -17,6 +17,7 @@ import com.compose.jetpackcomposelearn.containers.CardExample
 import com.compose.jetpackcomposelearn.containers.ColumnExample
 import com.compose.jetpackcomposelearn.containers.FlowColumnExample
 import com.compose.jetpackcomposelearn.containers.FlowRowExample
+import com.compose.jetpackcomposelearn.containers.IntrinsicSizeExample
 import com.compose.jetpackcomposelearn.containers.LazyColumnExample
 import com.compose.jetpackcomposelearn.containers.LazyHorizontalGridExample
 import com.compose.jetpackcomposelearn.containers.LazyHorizontalStaggeredGridExample
@@ -57,6 +58,7 @@ fun ContainerExample(modifier: Modifier = Modifier) {
         item { LazyHorizontalStaggeredGridExample() }
         item { FlowColumnExample() }
         item { FlowRowExample() }
+        item { IntrinsicSizeExample() }
     }
 }
 
