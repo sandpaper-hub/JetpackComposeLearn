@@ -26,6 +26,7 @@ import com.compose.jetpackcomposelearn.containers.LazyVerticalStaggeredGridExamp
 import com.compose.jetpackcomposelearn.containers.LazyVerticalGridExample
 import com.compose.jetpackcomposelearn.containers.ProgramScrollExample
 import com.compose.jetpackcomposelearn.containers.RowExample
+import com.compose.jetpackcomposelearn.containers.StickyHeadersExample
 import com.compose.jetpackcomposelearn.containers.SurfaceExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
@@ -62,6 +63,7 @@ fun ContainerExample(modifier: Modifier = Modifier) {
         item { FlowRowExample() }
         item { IntrinsicSizeExample() }
         item { ProgramScrollExample() }
+        item { StickyHeadersExample() }
     }
 }
 
