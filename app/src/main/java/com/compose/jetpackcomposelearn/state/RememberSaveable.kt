@@ -11,15 +11,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
 @Suppress("FunctionName")
-fun SimpleStateExample() {
-    val textValue = remember { mutableIntStateOf(0) }
+fun RememberSaveableFun() {
+    val textValue = rememberSaveable { mutableIntStateOf(0) }
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -30,8 +30,8 @@ fun SimpleStateExample() {
         verticalArrangement = Arrangement.Center
     ) {
         Button(onClick = { textValue.intValue++ }) {
-            Text("Click to count +1")
+            Text("Count +1")
         }
-        Text("Button clicked ${textValue.intValue} times")
+        Text("Button clicked ${textValue.intValue}")
     }
 }
