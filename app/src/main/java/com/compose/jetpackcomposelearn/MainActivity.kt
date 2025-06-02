@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.state.RememberSaveableFun
 import com.compose.jetpackcomposelearn.state.SimpleStateExample
+import com.compose.jetpackcomposelearn.state.SimpleUdfExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,6 +38,7 @@ fun MainFunction(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         item { SimpleStateExample() }
         item { RememberSaveableFun() }
+        item { SimpleUdfExample() }
     }
 }
 
