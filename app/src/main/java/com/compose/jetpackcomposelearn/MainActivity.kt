@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.compose.jetpackcomposelearn.state.CompositionLocalFun
 import com.compose.jetpackcomposelearn.state.RememberSaveableFun
 import com.compose.jetpackcomposelearn.state.SimpleStateExample
 import com.compose.jetpackcomposelearn.state.SimpleUdfExample
@@ -39,6 +40,7 @@ fun MainFunction(modifier: Modifier = Modifier) {
         item { SimpleStateExample() }
         item { RememberSaveableFun() }
         item { SimpleUdfExample() }
+        item { CompositionLocalFun() }
     }
 }
 
