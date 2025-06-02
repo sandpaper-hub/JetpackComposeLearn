@@ -29,6 +29,7 @@ fun SimpleStateExample() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Text("Simple state example", style = MaterialTheme.typography.titleLarge)
         Button(onClick = { textValue.intValue++ }) {
             Text("Click to count +1")
         }

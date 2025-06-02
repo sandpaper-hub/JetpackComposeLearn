@@ -39,6 +39,7 @@ fun SimpleUdfExample() {
             .padding(12.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text("Unidirectional Data Flow example", style = MaterialTheme.typography.titleLarge)
         Text("Current count: $count", style = MaterialTheme.typography.titleLarge)
         Spacer(modifier = Modifier.height(12.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {

@@ -29,6 +29,7 @@ fun RememberSaveableFun() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Text("RememberSaveable example", style = MaterialTheme.typography.titleLarge)
         Button(onClick = { textValue.intValue++ }) {
             Text("Count +1")
         }
