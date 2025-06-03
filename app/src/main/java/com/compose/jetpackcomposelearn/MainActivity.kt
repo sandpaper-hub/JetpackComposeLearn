@@ -49,6 +49,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+@Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         item { ModifierBasicExample() }
@@ -84,6 +85,7 @@ fun MainExample(modifier: Modifier = Modifier) {
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
 @Composable
+@Suppress("FunctionName")
 fun MainExamplePreview() {
     JetpackComposeLearnTheme {
         MainExample()
