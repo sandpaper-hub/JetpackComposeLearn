@@ -14,6 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 import com.compose.jetpackcomposelearn.ui_components.AnnotatedTextExample
 import com.compose.jetpackcomposelearn.ui_components.ClickableTextExample
+import com.compose.jetpackcomposelearn.ui_components.ElevatedButtonExample
+import com.compose.jetpackcomposelearn.ui_components.SimpleButtonExample
 import com.compose.jetpackcomposelearn.ui_components.SimpleText
 
 class MainActivity : ComponentActivity() {
@@ -39,6 +41,8 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { SimpleText() }
         item { AnnotatedTextExample() }
         item { ClickableTextExample() }
+        item { SimpleButtonExample() }
+        item { ElevatedButtonExample() }
     }
 }
 
