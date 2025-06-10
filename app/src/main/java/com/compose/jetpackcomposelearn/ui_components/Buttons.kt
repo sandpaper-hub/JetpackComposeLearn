@@ -7,6 +7,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -78,6 +79,20 @@ fun FilledTonalButtonExample() {
             Toast.makeText(context, "Clicked FilledTonalButton", Toast.LENGTH_SHORT).show()
         }) {
             Text("FilledTonalButton")
+        }
+    }
+}
+
+@Composable
+@Suppress("FunctionName")
+fun OutlinedButtonExample() {
+    val context = LocalContext.current
+
+    Column(modifier = Modifier.borderModifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        OutlinedButton(onClick = {
+            Toast.makeText(context, "OutlinedButton clicked", Toast.LENGTH_SHORT).show()
+        }) {
+            Text("OutlinedButton")
         }
     }
 }
