@@ -19,6 +19,7 @@ import com.compose.jetpackcomposelearn.ui_components.FilledTonalButtonExample
 import com.compose.jetpackcomposelearn.ui_components.OutlinedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.SimpleButtonExample
 import com.compose.jetpackcomposelearn.ui_components.SimpleText
+import com.compose.jetpackcomposelearn.ui_components.TextButtonExample
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +48,7 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { ElevatedButtonExample() }
         item { FilledTonalButtonExample() }
         item { OutlinedButtonExample() }
+        item { TextButtonExample() }
     }
 }
 

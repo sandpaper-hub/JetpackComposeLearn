@@ -9,6 +9,7 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -93,6 +94,21 @@ fun OutlinedButtonExample() {
             Toast.makeText(context, "OutlinedButton clicked", Toast.LENGTH_SHORT).show()
         }) {
             Text("OutlinedButton")
+        }
+    }
+}
+
+
+@Composable
+@Suppress("FunctionName")
+fun TextButtonExample() {
+    val context = LocalContext.current
+
+    Column(modifier = Modifier.borderModifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        TextButton(onClick = {
+            Toast.makeText(context, "TextButton clicked", Toast.LENGTH_SHORT).show()
+        }) {
+            Text("TextButton")
         }
     }
 }
