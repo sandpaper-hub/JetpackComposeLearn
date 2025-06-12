@@ -61,7 +61,7 @@ fun SimpleTextField() {
 }
 
 @Composable
-@Suppress("FuntcionName")
+@Suppress("FunctionName")
 fun OutlinedTextFieldExample() {
     var email by remember { mutableStateOf("") }
     var isError by remember { mutableStateOf(false) }
