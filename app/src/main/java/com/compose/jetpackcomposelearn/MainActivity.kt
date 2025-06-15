@@ -22,6 +22,7 @@ import com.compose.jetpackcomposelearn.ui_components.SimpleButtonExample
 import com.compose.jetpackcomposelearn.ui_components.SimpleText
 import com.compose.jetpackcomposelearn.ui_components.SimpleTextField
 import com.compose.jetpackcomposelearn.ui_components.TextButtonExample
+import com.compose.jetpackcomposelearn.ui_components.ToggleableExample
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,7 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { TextButtonExample() }
         item { SimpleTextField() }
         item { OutlinedTextFieldExample() }
+        item { ToggleableExample() }
     }
 }
 
