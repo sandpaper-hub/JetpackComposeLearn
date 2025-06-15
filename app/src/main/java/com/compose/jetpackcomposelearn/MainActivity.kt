@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 import com.compose.jetpackcomposelearn.ui_components.AnnotatedTextExample
+import com.compose.jetpackcomposelearn.ui_components.CheckBoxExample
 import com.compose.jetpackcomposelearn.ui_components.ClickableTextExample
 import com.compose.jetpackcomposelearn.ui_components.ElevatedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.FilledTonalButtonExample
@@ -55,6 +56,7 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { SimpleTextField() }
         item { OutlinedTextFieldExample() }
         item { ToggleableExample() }
+        item { CheckBoxExample() }
     }
 }
 
