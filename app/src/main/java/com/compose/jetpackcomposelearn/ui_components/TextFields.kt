@@ -27,7 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.compose.jetpackcomposelearn.borderModifier
+import com.compose.jetpackcomposelearn.util.borderModifier
 
 @Composable
 @Suppress("functionName")

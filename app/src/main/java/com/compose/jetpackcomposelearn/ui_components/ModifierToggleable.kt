@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import com.compose.jetpackcomposelearn.borderModifier
+import com.compose.jetpackcomposelearn.util.borderModifier
 
 @Composable
 @Suppress("FunctionName")

@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn
+package com.compose.jetpackcomposelearn.util
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
