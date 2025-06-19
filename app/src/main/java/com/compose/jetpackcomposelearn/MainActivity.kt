@@ -30,6 +30,7 @@ import com.compose.jetpackcomposelearn.modifierPack.PaddingExample
 import com.compose.jetpackcomposelearn.modifierPack.ScrollExample
 import com.compose.jetpackcomposelearn.modifierPack.ShadowExample
 import com.compose.jetpackcomposelearn.modifierPack.SizeExample
+import com.compose.jetpackcomposelearn.navigation.AppNavigation
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -39,9 +40,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeLearnTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MainExample(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    AppNavigation(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
