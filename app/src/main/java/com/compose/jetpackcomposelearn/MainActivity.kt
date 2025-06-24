@@ -19,6 +19,7 @@ import com.compose.jetpackcomposelearn.ui_components.ClickableTextExample
 import com.compose.jetpackcomposelearn.ui_components.ElevatedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.FilledTonalButtonExample
 import com.compose.jetpackcomposelearn.ui_components.IconButtonExample
+import com.compose.jetpackcomposelearn.ui_components.IconToggleButtonExample
 import com.compose.jetpackcomposelearn.ui_components.OutlinedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.OutlinedTextFieldExample
 import com.compose.jetpackcomposelearn.ui_components.RadioButtonExample
@@ -69,6 +70,7 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { BorderComponent { RadioGroupSample() } }
         item { BorderComponent { RadioButtonExample() } }
         item { BorderComponent { IconButtonExample(onRefresh = { onRefresh(context) }) } }
+        item { BorderComponent { IconToggleButtonExample() } }
     }
 }
 
