@@ -1,6 +1,7 @@
 package com.compose.jetpackcomposelearn
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -18,6 +19,7 @@ import com.compose.jetpackcomposelearn.ui_components.CheckBoxExample
 import com.compose.jetpackcomposelearn.ui_components.ClickableTextExample
 import com.compose.jetpackcomposelearn.ui_components.ElevatedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.FilledTonalButtonExample
+import com.compose.jetpackcomposelearn.ui_components.FloatingActionButtonExample
 import com.compose.jetpackcomposelearn.ui_components.IconButtonExample
 import com.compose.jetpackcomposelearn.ui_components.IconToggleButtonExample
 import com.compose.jetpackcomposelearn.ui_components.OutlinedButtonExample
@@ -39,7 +41,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeLearnTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                val context = LocalContext.current
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    floatingActionButton = {
+                        FloatingActionButtonExample {
+                            Toast.makeText(
+                                context, "FAB pushed",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }) { innerPadding ->
                     MainExample(
                         modifier = Modifier.padding(innerPadding)
                     )
