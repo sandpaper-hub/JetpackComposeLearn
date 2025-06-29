@@ -8,6 +8,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 import com.compose.jetpackcomposelearn.ui_components.AnnotatedTextExample
+import com.compose.jetpackcomposelearn.ui_components.BottomAppBarExample
 import com.compose.jetpackcomposelearn.ui_components.CheckBoxExample
 import com.compose.jetpackcomposelearn.ui_components.ClickableTextExample
 import com.compose.jetpackcomposelearn.ui_components.ElevatedButtonExample
@@ -32,6 +38,7 @@ import com.compose.jetpackcomposelearn.ui_components.SimpleText
 import com.compose.jetpackcomposelearn.ui_components.SimpleTextField
 import com.compose.jetpackcomposelearn.ui_components.TextButtonExample
 import com.compose.jetpackcomposelearn.ui_components.ToggleableExample
+import com.compose.jetpackcomposelearn.ui_components.TopAppBarExample
 import com.compose.jetpackcomposelearn.ui_components.onRefresh
 import com.compose.jetpackcomposelearn.util.BorderComponent
 
@@ -51,7 +58,45 @@ class MainActivity : ComponentActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                    }) { innerPadding ->
+                    },
+                    topBar = {
+                        TopAppBarExample(
+                            title = "ToDo",
+                            onNavigationClick = {
+                                Toast.makeText(
+                                    context,
+                                    "Navigation up",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }) {
+                            IconButton(onClick = {
+                                Toast.makeText(
+                                    context,
+                                    "Search",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }) { Icon(Icons.Default.Search, "Search") }
+                            IconButton(onClick = {
+                                Toast.makeText(context, "Filter", Toast.LENGTH_SHORT).show()
+                            }) { Icon(Icons.Default.Info, "Filter") }
+                        }
+                    },
+                    bottomBar = {
+                        BottomAppBarExample(
+                            onHomeClick = {
+                                Toast.makeText(context, "Home clicked", Toast.LENGTH_SHORT).show()
+                            },
+                            onFavoriteClick = {
+                                Toast.makeText(context, "Favorite clicked", Toast.LENGTH_SHORT)
+                                    .show()
+                            },
+                            onSettingsClick = {
+                                Toast.makeText(context, "Settings clicked", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                        )
+                    }
+                ) { innerPadding ->
                     MainExample(
                         modifier = Modifier.padding(innerPadding)
                     )
