@@ -11,10 +11,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,11 +41,14 @@ import com.compose.jetpackcomposelearn.ui_components.SelectableExample
 import com.compose.jetpackcomposelearn.ui_components.SimpleButtonExample
 import com.compose.jetpackcomposelearn.ui_components.SimpleText
 import com.compose.jetpackcomposelearn.ui_components.SimpleTextField
+import com.compose.jetpackcomposelearn.ui_components.SnackBarExample
 import com.compose.jetpackcomposelearn.ui_components.TextButtonExample
 import com.compose.jetpackcomposelearn.ui_components.ToggleableExample
 import com.compose.jetpackcomposelearn.ui_components.TopAppBarExample
 import com.compose.jetpackcomposelearn.ui_components.onRefresh
 import com.compose.jetpackcomposelearn.util.BorderComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +57,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackComposeLearnTheme {
                 val context = LocalContext.current
+
+                val snackBarHostState = remember { SnackbarHostState() }
+                val scope = rememberCoroutineScope()
+
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     floatingActionButton = {
@@ -95,10 +107,13 @@ class MainActivity : ComponentActivity() {
                                     .show()
                             }
                         )
-                    }
+                    },
+                    snackbarHost = { SnackBarExample(snackBarHostState) }
                 ) { innerPadding ->
                     MainExample(
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
+                        snackBarHostState,
+                        scope
                     )
                 }
             }
@@ -108,7 +123,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 @Suppress("FunctionName")
-fun MainExample(modifier: Modifier = Modifier) {
+fun MainExample(
+    modifier: Modifier = Modifier,
+    snackBarHostState: SnackbarHostState,
+    scope: CoroutineScope
+) {
     val context = LocalContext.current
     LazyColumn(modifier = modifier) {
         item { SimpleText() }
@@ -128,6 +147,21 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { BorderComponent { RadioButtonExample() } }
         item { BorderComponent { IconButtonExample(onRefresh = { onRefresh(context) }) } }
         item { BorderComponent { IconToggleButtonExample() } }
+        item {
+            BorderComponent {
+                IconButton(onClick = {
+                    scope.launch {
+                        snackBarHostState.showSnackbar(
+                            message = "Saved",
+                            actionLabel = "Cancel",
+                            duration = SnackbarDuration.Short
+                        )
+                    }
+                }) {
+                    Icon(imageVector = Icons.Default.Star, contentDescription = "Show snackbar")
+                }
+            }
+        }
     }
 }
 
@@ -136,6 +170,6 @@ fun MainExample(modifier: Modifier = Modifier) {
 @Suppress("FunctionName")
 fun MainExamplePreview() {
     JetpackComposeLearnTheme {
-        MainExample()
+//        MainExample()
     }
 }
