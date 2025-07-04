@@ -3,7 +3,9 @@ package com.compose.jetpackcomposelearn.ui_components
 import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,11 +38,10 @@ import androidx.compose.ui.unit.sp
 fun SimpleText() {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(12.dp)
-            .border(2.dp, MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(8.dp))
+            .fillMaxSize()
             .padding(12.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Text(
             "Text example",

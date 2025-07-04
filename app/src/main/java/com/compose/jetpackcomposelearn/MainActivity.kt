@@ -78,9 +78,9 @@ class MainActivity : ComponentActivity() {
                 val drawerState = rememberDrawerState(DrawerValue.Closed)
                 val navController = rememberNavController()
 
-                val menuItems = listOf("home", "settings", "about")
+                val menuItems = listOf("simpleText", "settings", "about")
                 val menuLabels =
-                    mapOf("home" to "Main", "setting" to "Settings", "about" to "About")
+                    mapOf("simpleText" to "Simple text", "setting" to "Settings", "about" to "About")
 
                 ModalNavigationDrawer(
                     drawerState = drawerState,
@@ -155,18 +155,13 @@ class MainActivity : ComponentActivity() {
                     ) { innerPadding ->
                         NavHost(
                             navController = navController,
-                            startDestination = "home",
+                            startDestination = "simpleText",
                             modifier = Modifier.padding(innerPadding)
                         ) {
-                            composable("home") { ScreenContent("Main") }
+                            composable("simpleText") { SimpleText() }
                             composable("settings") { ScreenContent("Settings") }
                             composable("about") { "About" }
                         }
-                        MainExample(
-                            modifier = Modifier.padding(innerPadding),
-                            snackBarHostState,
-                            scope
-                        )
                     }
                 }
             }
