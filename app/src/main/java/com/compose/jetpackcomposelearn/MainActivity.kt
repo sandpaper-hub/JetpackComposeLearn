@@ -45,6 +45,7 @@ import com.compose.jetpackcomposelearn.ui_components.SimpleText
 import com.compose.jetpackcomposelearn.ui_components.SimpleTextField
 import com.compose.jetpackcomposelearn.ui_components.SliderExample
 import com.compose.jetpackcomposelearn.ui_components.SnackBarExample
+import com.compose.jetpackcomposelearn.ui_components.SwitchExample
 import com.compose.jetpackcomposelearn.ui_components.TextButtonExample
 import com.compose.jetpackcomposelearn.ui_components.ToggleableExample
 import com.compose.jetpackcomposelearn.ui_components.TopAppBarExample
@@ -165,6 +166,7 @@ fun MainExample(
             }
         }
         item { BorderComponent { SliderExample() } }
+        item { BorderComponent { SwitchExample() } }
     }
 }
 
