@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
@@ -83,18 +81,7 @@ class MainActivity : ComponentActivity() {
                             title = "NavigationDrawer",
                             onNavigationClick = {
                                 scope.launch { drawerState.open() }
-                            }) {
-                            IconButton(onClick = {
-                                Toast.makeText(
-                                    context,
-                                    "Search",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }) { Icon(Icons.Default.Search, "Search") }
-                            IconButton(onClick = {
-                                Toast.makeText(context, "Filter", Toast.LENGTH_SHORT).show()
-                            }) { Icon(Icons.Default.Info, "Filter") }
-                        }
+                            })
                     },
                     bottomBar = {
                         BottomAppBarExample(
