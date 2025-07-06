@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
+import com.compose.jetpackcomposelearn.ui_components.AlertDialogExample
 import com.compose.jetpackcomposelearn.ui_components.AnnotatedTextExample
 import com.compose.jetpackcomposelearn.ui_components.BottomAppBarExample
 import com.compose.jetpackcomposelearn.ui_components.CheckBoxExample
@@ -167,6 +168,7 @@ fun MainExample(
         }
         item { BorderComponent { SliderExample() } }
         item { BorderComponent { SwitchExample() } }
+        item { BorderComponent { AlertDialogExample() } }
     }
 }
 
