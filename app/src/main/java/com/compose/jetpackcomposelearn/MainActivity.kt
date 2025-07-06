@@ -28,6 +28,7 @@ import com.compose.jetpackcomposelearn.ui_components.AlertDialogExample
 import com.compose.jetpackcomposelearn.ui_components.AnnotatedTextExample
 import com.compose.jetpackcomposelearn.ui_components.BottomAppBarExample
 import com.compose.jetpackcomposelearn.ui_components.CheckBoxExample
+import com.compose.jetpackcomposelearn.ui_components.CircularProgressIndicatorExample
 import com.compose.jetpackcomposelearn.ui_components.ClickableTextExample
 import com.compose.jetpackcomposelearn.ui_components.ElevatedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.FilledTonalButtonExample
@@ -156,6 +157,7 @@ fun MainExample(
         item { BorderComponent { SliderExample() } }
         item { BorderComponent { SwitchExample() } }
         item { BorderComponent { AlertDialogExample() } }
+        item { BorderComponent { CircularProgressIndicatorExample() } }
     }
 }
 
