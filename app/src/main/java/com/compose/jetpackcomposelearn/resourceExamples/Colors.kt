@@ -1,0 +1,19 @@
+package com.compose.jetpackcomposelearn.resourceExamples
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+
+val Red = Color(0xFFE57373)
+
+@Composable
+@Suppress("FunctionName")
+fun ColorsExample() {
+    Box(modifier = Modifier
+        .size(48.dp)
+        .background(Red))
+}
