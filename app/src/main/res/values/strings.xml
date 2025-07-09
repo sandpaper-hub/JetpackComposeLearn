@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetpackComposeLearn</string>
+    <string name="someStringValue">Test string value</string>
 </resources>

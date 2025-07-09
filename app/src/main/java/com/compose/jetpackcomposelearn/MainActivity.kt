@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.resourceExamples.ColorsExample
+import com.compose.jetpackcomposelearn.resourceExamples.StringResourceExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 import com.compose.jetpackcomposelearn.util.BorderComponent
 
@@ -36,6 +37,7 @@ class MainActivity : ComponentActivity() {
 fun MainExample(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         item { BorderComponent { ColorsExample() } }
+        item { BorderComponent { StringResourceExample() } }
     }
 }
 
