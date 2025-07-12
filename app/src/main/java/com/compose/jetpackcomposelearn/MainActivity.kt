@@ -15,6 +15,7 @@ import com.compose.jetpackcomposelearn.resourceExamples.ColorsExample
 import com.compose.jetpackcomposelearn.resourceExamples.DimensionExample
 import com.compose.jetpackcomposelearn.resourceExamples.DrawableResourceExample
 import com.compose.jetpackcomposelearn.resourceExamples.StringResourceExample
+import com.compose.jetpackcomposelearn.resourceExamples.TypographyExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 import com.compose.jetpackcomposelearn.util.BorderComponent
 
@@ -42,6 +43,7 @@ fun MainExample(modifier: Modifier = Modifier) {
         item { BorderComponent { StringResourceExample() } }
         item { BorderComponent { DrawableResourceExample() } }
         item { BorderComponent { DimensionExample() } }
+        item { BorderComponent { TypographyExample() } }
     }
 }
 

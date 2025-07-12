@@ -12,6 +12,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.compose.jetpackcomposelearn.R
 
@@ -50,4 +52,10 @@ fun DimensionExample() {
             .background(Red)
             .size(100.dp)
     )
+}
+
+@Composable
+@Suppress("FunctionName")
+fun TypographyExample() {
+    Text("This is Roboto font", fontFamily = FontFamily(Font(R.font.roboto_mono)))
 }
