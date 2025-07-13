@@ -35,6 +35,7 @@ import com.compose.jetpackcomposelearn.ui_components.FilledTonalButtonExample
 import com.compose.jetpackcomposelearn.ui_components.FloatingActionButtonExample
 import com.compose.jetpackcomposelearn.ui_components.IconButtonExample
 import com.compose.jetpackcomposelearn.ui_components.IconToggleButtonExample
+import com.compose.jetpackcomposelearn.ui_components.ImageExample
 import com.compose.jetpackcomposelearn.ui_components.OutlinedButtonExample
 import com.compose.jetpackcomposelearn.ui_components.OutlinedTextFieldExample
 import com.compose.jetpackcomposelearn.ui_components.RadioButtonExample
@@ -158,6 +159,7 @@ fun MainExample(
         item { BorderComponent { SwitchExample() } }
         item { BorderComponent { AlertDialogExample() } }
         item { BorderComponent { CircularProgressIndicatorExample() } }
+        item { BorderComponent { ImageExample() } }
     }
 }
 
