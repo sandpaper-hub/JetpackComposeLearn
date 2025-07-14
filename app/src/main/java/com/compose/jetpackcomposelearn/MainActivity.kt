@@ -4,33 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.compose.jetpackcomposelearn.modifierPack.BorderExample
-import com.compose.jetpackcomposelearn.modifierPack.ClickableExample
-import com.compose.jetpackcomposelearn.modifierPack.ClipExample
-import com.compose.jetpackcomposelearn.modifierPack.ColorExample
-import com.compose.jetpackcomposelearn.modifierPack.ModifierBasicExample
-import com.compose.jetpackcomposelearn.modifierPack.ModifierDefault
-import com.compose.jetpackcomposelearn.modifierPack.ModifierMerging
-import com.compose.jetpackcomposelearn.modifierPack.ModifierOverriding
-import com.compose.jetpackcomposelearn.modifierPack.PaddingExample
-import com.compose.jetpackcomposelearn.modifierPack.ScrollExample
-import com.compose.jetpackcomposelearn.modifierPack.ShadowExample
-import com.compose.jetpackcomposelearn.modifierPack.SizeExample
+import com.compose.jetpackcomposelearn.customLayoutModifier.CustomModifierLayoutExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
+import com.compose.jetpackcomposelearn.util.BorderComponent
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,34 +35,7 @@ class MainActivity : ComponentActivity() {
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
-        item { ModifierBasicExample() }
-        item { ColorExample() }
-        item { SizeExample() }
-        item { PaddingExample() }
-        item { ScrollExample() }
-        item { BorderExample() }
-        item { ClipExample() }
-        item { ShadowExample() }
-        item { ClickableExample() }
-        item { ModifierDefault("Default") }
-        item {
-            ModifierOverriding(
-                "Overriding", Modifier.fillMaxWidth()
-                    .padding(10.dp)
-                    .border(2.dp, Color.DarkGray)
-                    .background(Color.LightGray)
-                    .padding(20.dp)
-            )
-        }
-        item {
-            ModifierMerging(
-                "Merging",
-                Modifier.border(2.dp, Color.DarkGray, shape = CircleShape).clip(shape = CircleShape)
-                    .background(
-                        Color.LightGray
-                    ).padding(20.dp)
-            )
-        }
+        item {BorderComponent { CustomModifierLayoutExample() }}
     }
 }
 
