@@ -11,9 +11,9 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
 @Suppress("FunctionName")
-fun ConstraintLayoutExample() {
+fun ConstraintLayoutExample(modifier: Modifier) {
     ConstraintLayout(
-        modifier = Modifier.fillMaxWidth().height(500.dp)
+        modifier = modifier.then(Modifier.fillMaxWidth().height(500.dp))
     ) {
         val (button, text) = createRefs()
         Button(onClick = {}, modifier = Modifier.constrainAs(button) {
@@ -23,9 +23,10 @@ fun ConstraintLayoutExample() {
             Text("Click")
         }
 
-        Text(text = "Text example",
+        Text(
+            text = "Text example",
             modifier = Modifier
-                .constrainAs(text){
+                .constrainAs(text) {
                     top.linkTo(button.bottom, margin = 16.dp)
                     start.linkTo(button.start)
                 })
