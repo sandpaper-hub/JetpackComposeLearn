@@ -3,6 +3,7 @@ package com.compose.jetpackcomposelearn.containers
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -57,6 +58,31 @@ fun ConstraintLayoutWithBiasExample(modifier: Modifier) {
                     top.linkTo(box1.bottom, margin = 16.dp)
                     linkTo(parent.start, parent.end, bias = 0.75f)
                 }
+        )
+    }
+}
+
+@Composable
+@Suppress("FunctionName")
+fun ConstraintLayoutWithOffset(modifier: Modifier) {
+    ConstraintLayout(modifier = modifier.then(Modifier.fillMaxSize())) {
+        val (box1, text) = createRefs()
+
+        Box(
+            modifier = Modifier.size(100.dp)
+                .background(Color.Red)
+                .constrainAs(box1) {
+                    linkTo(parent.top, parent.bottom)
+                    linkTo(parent.start, parent.end)
+                })
+
+        Text("Offset",
+            modifier = Modifier.offset(x = 40.dp)
+                .constrainAs(text) {
+                    linkTo(parent.start, parent.end)
+                    linkTo(parent.top, parent.bottom)
+                }
+
         )
     }
 }
