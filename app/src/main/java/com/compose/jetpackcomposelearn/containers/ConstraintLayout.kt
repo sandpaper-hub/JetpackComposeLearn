@@ -76,7 +76,8 @@ fun ConstraintLayoutWithOffset(modifier: Modifier) {
                     linkTo(parent.start, parent.end)
                 })
 
-        Text("Offset",
+        Text(
+            "Offset",
             modifier = Modifier.offset(x = 40.dp)
                 .constrainAs(text) {
                     linkTo(parent.start, parent.end)
@@ -84,5 +85,21 @@ fun ConstraintLayoutWithOffset(modifier: Modifier) {
                 }
 
         )
+    }
+}
+
+@Composable
+@Suppress("FunctionName")
+fun ConstraintLayoutWithGuideline(modifier: Modifier) {
+    ConstraintLayout(modifier = modifier.then(Modifier.fillMaxSize())) {
+        val guideline = createGuidelineFromStart(50.dp)
+        val text = createRef()
+
+        Text("Guideline example",
+            modifier = Modifier
+                .constrainAs(text) {
+                    start.linkTo(guideline)
+                    top.linkTo(parent.top)
+                })
     }
 }
