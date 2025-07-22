@@ -103,3 +103,34 @@ fun ConstraintLayoutWithGuideline(modifier: Modifier) {
                 })
     }
 }
+
+@Composable
+@Suppress("FunctionName")
+fun ConstraintLayoutWithBarrier(modifier: Modifier) {
+    ConstraintLayout(modifier = modifier.then(Modifier.fillMaxSize())) {
+        val (text1, text2, box) = createRefs()
+        Text("Short text",
+            modifier = Modifier.constrainAs(text1) {
+                top.linkTo(parent.top, margin = 16.dp)
+                start.linkTo(parent.start, margin = 16.dp)
+            })
+
+        Text("Very long text and it can be wider",
+            modifier = Modifier.constrainAs(text2) {
+                top.linkTo(text1.bottom, margin = 8.dp)
+                start.linkTo(parent.start, margin = 16.dp)
+            })
+
+        val barrier = createEndBarrier(text1, text2)
+
+        Box(
+            modifier = Modifier
+                .size(50.dp)
+                .background(Color.Red)
+                .constrainAs(box) {
+                    start.linkTo(barrier, margin = 16.dp)
+                    top.linkTo(parent.top)
+                }
+        )
+    }
+}
