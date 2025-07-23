@@ -12,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.ConstraintSet
+import androidx.constraintlayout.compose.layoutId
 
 @Composable
 @Suppress("FunctionName")
@@ -132,5 +134,41 @@ fun ConstraintLayoutWithBarrier(modifier: Modifier) {
                     top.linkTo(parent.top)
                 }
         )
+    }
+}
+
+@Composable
+@Suppress("FunctionName")
+fun ConstraintSetExample(modifier: Modifier) {
+    val constraints = ConstraintSet {
+        val redBox = createRefFor("redBox")
+        val yellowBox = createRefFor("yellowBox")
+
+        constrain(redBox) {
+            top.linkTo(parent.top)
+            start.linkTo(parent.start)
+        }
+
+        constrain(yellowBox){
+            top.linkTo(redBox.bottom, margin = 16.dp)
+            start.linkTo(parent.start)
+        }
+    }
+
+    ConstraintLayout(
+        constraintSet = constraints,
+        modifier = modifier.then(Modifier.fillMaxSize())
+    ) {
+        Box(
+            modifier = Modifier
+                .size(100.dp)
+                .background(Color.Red)
+                .layoutId("redBox")
+        )
+
+        Box(modifier = Modifier
+            .size(100.dp)
+            .background(Color.Yellow)
+            .layoutId("yellowBox"))
     }
 }
