@@ -35,10 +35,8 @@ fun DispatcherMainExample(modifier: Modifier) {
         })
 
         Button(onClick = {
-            scope.launch {
-                withContext(Dispatchers.Main) {
-                    textValue = "Text has re-rendered"
-                }
+            scope.launch(Dispatchers.Main) {
+                textValue = "Text has re-rendered"
             }
         }, modifier = Modifier.constrainAs(button) {
             centerHorizontallyTo(parent)
@@ -70,22 +68,21 @@ fun DispatcherIOExample(modifier: Modifier) {
         })
 
         Button(onClick = {
-            scope.launch {
-                withContext(Dispatchers.IO) {
-                    progressValue = 0f
+            scope.launch(Dispatchers.IO) {
+                progressValue = 0f
+                repeat(3) {
+                    textValue = "Downloading"
                     repeat(3) {
-                        textValue = "Downloading"
-                        repeat(3) {
-                            if (textValue != "Downloading")
-                                delay(1000)
-                            textValue += "."
-                            progressValue += 0.1f
-                        }
-                        delay(1000)
+                        if (textValue != "Downloading")
+                            delay(1000)
+                        textValue += "."
+                        progressValue += 0.1f
                     }
-                    progressValue += 0.1f
-                    textValue = "Finished"
+                    delay(1000)
                 }
+                progressValue += 0.1f
+                textValue = "Finished"
+
             }
         }, modifier = Modifier.constrainAs(startButton) {
             centerHorizontallyTo(parent)
@@ -93,4 +90,42 @@ fun DispatcherIOExample(modifier: Modifier) {
             Text("Start")
         }
     }
+}
+
+@Composable
+@Suppress("FunctionName")
+fun DispatcherDefaultExample(modifier: Modifier) {
+    val scope = rememberCoroutineScope()
+    var textValue by remember { mutableStateOf("Push the button") }
+
+    ConstraintLayout(modifier = modifier.then(Modifier.fillMaxSize())) {
+        val (text, button) = createRefs()
+        createVerticalChain(text, button, chainStyle = ChainStyle.Packed)
+
+        Text(textValue, modifier = Modifier.constrainAs(text) {
+            centerHorizontallyTo(parent)
+        })
+
+        Button(onClick = {
+            scope.launch {
+                textValue = "Computing..."
+                val result = withContext(Dispatchers.Default) {
+                    heavyComputation()
+                }
+                textValue = "Result is: $result"
+            }
+        }, modifier = Modifier.constrainAs(button) {
+            centerHorizontallyTo(parent)
+        }) {
+            Text("Compute")
+        }
+    }
+}
+
+fun heavyComputation(): Int {
+    var sum = 0
+    repeat(1_000_000) {
+        sum += it *it
+    }
+    return sum
 }
