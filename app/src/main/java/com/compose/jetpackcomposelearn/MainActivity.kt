@@ -10,7 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.compose.jetpackcomposelearn.coroutines.DispatcherDefaultExample
+import com.compose.jetpackcomposelearn.coroutines.ui.flow.SimpleFlowExample
+import com.compose.jetpackcomposelearn.coroutines.viewModel.flow.LoadingViewModel
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,9 +20,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeLearnTheme {
+                val viewModel = LoadingViewModel()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MainExample(
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
+                        viewModel = viewModel
                     )
                 }
             }
@@ -31,8 +34,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 @Suppress("FunctionName")
-fun MainExample(modifier: Modifier = Modifier) {
-    DispatcherDefaultExample(modifier)
+fun MainExample(modifier: Modifier = Modifier, viewModel: LoadingViewModel) {
+    SimpleFlowExample(modifier = modifier, viewModel = viewModel)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
@@ -40,6 +43,6 @@ fun MainExample(modifier: Modifier = Modifier) {
 @Suppress("FunctionName")
 fun MainExamplePreview() {
     JetpackComposeLearnTheme {
-        MainExample()
+//        MainExample()
     }
 }

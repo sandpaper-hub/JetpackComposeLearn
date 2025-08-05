@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.coroutines
+package com.compose.jetpackcomposelearn.coroutines.ui
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box

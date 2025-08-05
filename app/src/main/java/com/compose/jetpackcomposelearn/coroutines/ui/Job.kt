@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.coroutines
+package com.compose.jetpackcomposelearn.coroutines.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
