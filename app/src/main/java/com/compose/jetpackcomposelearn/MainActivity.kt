@@ -10,8 +10,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.compose.jetpackcomposelearn.coroutines.ui.flow.SimpleFlowExample
-import com.compose.jetpackcomposelearn.coroutines.viewModel.flow.LoadingViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.compose.jetpackcomposelearn.coroutines.ui.flow.simpleFlow.SimpleFlowExample
+import com.compose.jetpackcomposelearn.coroutines.viewModel.flow.sharedFlow.HomeViewModel
+import com.compose.jetpackcomposelearn.coroutines.viewModel.flow.simpleFlow.LoadingViewModel
+import com.compose.jetpackcomposelearn.navigation.flow.sharedFlow.SharedFlowNavigation
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeLearnTheme {
-                val viewModel = LoadingViewModel()
+                val viewModel: HomeViewModel = viewModel()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MainExample(
                         modifier = Modifier.padding(innerPadding),
@@ -34,8 +37,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 @Suppress("FunctionName")
-fun MainExample(modifier: Modifier = Modifier, viewModel: LoadingViewModel) {
-    SimpleFlowExample(modifier = modifier, viewModel = viewModel)
+fun MainExample(modifier: Modifier = Modifier, viewModel: HomeViewModel) {
+    SharedFlowNavigation(modifier, viewModel)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)

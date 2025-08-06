@@ -1,8 +1,8 @@
-package com.compose.jetpackcomposelearn.coroutines.viewModel.flow
+package com.compose.jetpackcomposelearn.coroutines.viewModel.flow.simpleFlow
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.compose.jetpackcomposelearn.coroutines.ui.flow.LoadingProgressData
+import com.compose.jetpackcomposelearn.coroutines.ui.flow.simpleFlow.LoadingProgressData
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

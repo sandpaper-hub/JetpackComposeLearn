@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.coroutines.ui.flow
+package com.compose.jetpackcomposelearn.coroutines.ui.flow.simpleFlow
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
@@ -10,7 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.compose.jetpackcomposelearn.coroutines.viewModel.flow.LoadingViewModel
+import com.compose.jetpackcomposelearn.coroutines.viewModel.flow.simpleFlow.LoadingViewModel
 
 @Composable
 @Suppress("FunctionName")
