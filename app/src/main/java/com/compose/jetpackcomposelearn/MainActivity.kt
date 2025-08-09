@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.compose.jetpackcomposelearn.animation.AnimateDpExample
 import com.compose.jetpackcomposelearn.modifierPack.BorderExample
 import com.compose.jetpackcomposelearn.modifierPack.ClickableExample
 import com.compose.jetpackcomposelearn.modifierPack.ClipExample
@@ -51,36 +52,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    LazyColumn(modifier = modifier) {
-        item { ModifierBasicExample() }
-        item { ColorExample() }
-        item { SizeExample() }
-        item { PaddingExample() }
-        item { ScrollExample() }
-        item { BorderExample() }
-        item { ClipExample() }
-        item { ShadowExample() }
-        item { ClickableExample() }
-        item { ModifierDefault("Default") }
-        item {
-            ModifierOverriding(
-                "Overriding", Modifier.fillMaxWidth()
-                    .padding(10.dp)
-                    .border(2.dp, Color.DarkGray)
-                    .background(Color.LightGray)
-                    .padding(20.dp)
-            )
-        }
-        item {
-            ModifierMerging(
-                "Merging",
-                Modifier.border(2.dp, Color.DarkGray, shape = CircleShape).clip(shape = CircleShape)
-                    .background(
-                        Color.LightGray
-                    ).padding(20.dp)
-            )
-        }
-    }
+    AnimateDpExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
