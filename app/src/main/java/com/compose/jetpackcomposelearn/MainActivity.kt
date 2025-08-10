@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.compose.jetpackcomposelearn.animation.AnimateDpExample
+import com.compose.jetpackcomposelearn.animation.RepeatableExample
 import com.compose.jetpackcomposelearn.modifierPack.BorderExample
 import com.compose.jetpackcomposelearn.modifierPack.ClickableExample
 import com.compose.jetpackcomposelearn.modifierPack.ClipExample
@@ -52,7 +53,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    AnimateDpExample(modifier)
+    RepeatableExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)

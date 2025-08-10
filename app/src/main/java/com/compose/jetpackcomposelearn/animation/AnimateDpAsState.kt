@@ -1,6 +1,8 @@
 package com.compose.jetpackcomposelearn.animation
 
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -9,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,5 +42,34 @@ fun AnimateDpExample(modifier: Modifier) {
                 .size(size.value)
                 .background(Color.Magenta)
                 .clickable { big = !big })
+    }
+}
+
+@Composable
+@Suppress("FunctionName")
+fun RepeatableExample(modifier: Modifier) {
+    var target by remember { mutableStateOf(100.dp) }
+    val size by animateDpAsState(
+        targetValue = target,
+        animationSpec = repeatable(
+            iterations = 5,
+            animation = tween(500),
+            repeatMode = RepeatMode.Reverse
+        ),
+        label = "size"
+    )
+
+    ConstraintLayout(modifier = modifier.then(Modifier.fillMaxSize())) {
+        val box = createRef()
+
+        LaunchedEffect(Unit) {
+            target = 200.dp
+        }
+        Box(
+            modifier = Modifier.constrainAs(box) {
+                centerVerticallyTo(parent)
+                centerHorizontallyTo(parent) }
+                .size(size)
+                .background(Color.Red))
     }
 }
