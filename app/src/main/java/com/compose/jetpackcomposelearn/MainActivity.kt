@@ -22,6 +22,7 @@ import com.compose.jetpackcomposelearn.animation.AnimateColorAsStateExample
 import com.compose.jetpackcomposelearn.animation.AnimateDpExample
 import com.compose.jetpackcomposelearn.animation.AnimateFloatAsStateExample
 import com.compose.jetpackcomposelearn.animation.RepeatableExample
+import com.compose.jetpackcomposelearn.animation.TransitionExample
 import com.compose.jetpackcomposelearn.modifierPack.BorderExample
 import com.compose.jetpackcomposelearn.modifierPack.ClickableExample
 import com.compose.jetpackcomposelearn.modifierPack.ClipExample
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    AnimateFloatAsStateExample(modifier)
+    TransitionExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
