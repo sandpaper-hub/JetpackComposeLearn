@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import com.compose.jetpackcomposelearn.animation.AnimateColorAsStateExample
 import com.compose.jetpackcomposelearn.animation.AnimateDpExample
 import com.compose.jetpackcomposelearn.animation.AnimateFloatAsStateExample
+import com.compose.jetpackcomposelearn.animation.AnimatedVisibilityExample
 import com.compose.jetpackcomposelearn.animation.RepeatableExample
 import com.compose.jetpackcomposelearn.animation.TransitionExample
 import com.compose.jetpackcomposelearn.modifierPack.BorderExample
@@ -56,7 +57,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    TransitionExample(modifier)
+    AnimatedVisibilityExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
