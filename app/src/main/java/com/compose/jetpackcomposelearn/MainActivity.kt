@@ -10,6 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.compose.jetpackcomposelearn.animation.AnimateEnterExitExample
 import com.compose.jetpackcomposelearn.animation.InfiniteTransitionExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    InfiniteTransitionExample(modifier)
+    AnimateEnterExitExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
