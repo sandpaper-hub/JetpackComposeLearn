@@ -10,6 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.compose.jetpackcomposelearn.canvas.DrawLineExample
 import com.compose.jetpackcomposelearn.canvas.MultipleDrawExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    MultipleDrawExample(modifier)
+    DrawLineExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
