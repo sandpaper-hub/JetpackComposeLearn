@@ -26,7 +26,7 @@ fun DrawTextExample(modifier: Modifier) {
         val canvas = createRef()
 
         Canvas(modifier = Modifier.size(250.dp)
-            .background(Color.Magenta)
+            .background(Color.Cyan)
             .constrainAs(canvas) {
             centerHorizontallyTo(parent)
             centerVerticallyTo(parent)

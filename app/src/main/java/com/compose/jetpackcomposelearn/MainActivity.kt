@@ -15,6 +15,7 @@ import com.compose.jetpackcomposelearn.canvas.DrawImageExample
 import com.compose.jetpackcomposelearn.canvas.DrawPathExample
 import com.compose.jetpackcomposelearn.canvas.DrawPointsExample
 import com.compose.jetpackcomposelearn.canvas.DrawTextExample
+import com.compose.jetpackcomposelearn.canvas.GradientBrushExample
 import com.compose.jetpackcomposelearn.canvas.TransformationsExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
@@ -36,8 +37,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 @Suppress("FunctionName")
-fun MainExample(modifier: Modifier = Modifier) {
-    TransformationsExample(modifier)
+fun MainExample(modifier: Modifier = Modifier
+) {
+    GradientBrushExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
