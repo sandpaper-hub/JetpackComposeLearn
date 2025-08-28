@@ -11,9 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.canvas.DrawArcExample
+import com.compose.jetpackcomposelearn.canvas.DrawImageExample
 import com.compose.jetpackcomposelearn.canvas.DrawPathExample
 import com.compose.jetpackcomposelearn.canvas.DrawPointsExample
 import com.compose.jetpackcomposelearn.canvas.DrawTextExample
+import com.compose.jetpackcomposelearn.canvas.TransformationsExample
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,7 +37,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    DrawTextExample(modifier)
+    TransformationsExample(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
