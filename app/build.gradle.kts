@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.compose.jetpackcomposelearn"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.compose.jetpackcomposelearn"
