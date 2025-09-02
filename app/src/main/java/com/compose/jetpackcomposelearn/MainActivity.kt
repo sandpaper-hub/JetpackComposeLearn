@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.compose.jetpackcomposelearn.ui.theme.JetpackComposeLearnTheme
+import com.compose.jetpackcomposelearn.viewModel.MainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-
+    MainScreen(modifier)
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)
