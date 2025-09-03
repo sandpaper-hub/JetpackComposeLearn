@@ -31,67 +31,62 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun MainScreen(
     modifier: Modifier, viewModel: MainScreenViewModel = viewModel<MainScreenViewModel>()
 ) {
-    val uiState by viewModel.screenUiState.collectAsState()
-    val mainScreenState by viewModel.mainScreenState.collectAsState()
+    val mainScreenUiState by viewModel.mainScreenUiState.collectAsState()
     var textFieldValue by remember { mutableStateOf("") }
 
     ConstraintLayout(modifier = modifier.then(Modifier.fillMaxSize())) {
         val (text, editText, button, progressIndicator) = createRefs()
         createVerticalChain(text, editText, button, chainStyle = ChainStyle.Packed)
 
-        when (mainScreenState) {
-            is MainScreenState.Success -> {
-                Text(uiState.text, modifier = Modifier.constrainAs(text) {
-                    centerHorizontallyTo(parent)
-                    linkTo(top = parent.top, bottom = editText.top)
-                })
+        if (mainScreenUiState.isLoading) {
+            CircularProgressIndicator(modifier = Modifier.constrainAs(progressIndicator) {
+                centerTo(parent)
+            })
+        } else {
+            Text(mainScreenUiState.text, modifier = Modifier.constrainAs(text) {
+                centerHorizontallyTo(parent)
+                linkTo(top = parent.top, bottom = editText.top)
+            })
 
-                BasicTextField(
-                    value = textFieldValue,
-                    onValueChange = { textFieldValue = it },
-                    modifier = Modifier
-                        .size(350.dp, 56.dp)
-                        .constrainAs(editText) {
-                            centerHorizontallyTo(parent)
-                            linkTo(top = text.bottom, bottom = button.top)
-                        },
-                    textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
-                    decorationBox = { innerTextField ->
-                        Box(
-                            modifier = Modifier
-                                .background(
-                                    color = Color.Transparent, shape = RoundedCornerShape(8.dp)
-                                )
-                                .border(
-                                    width = 1.dp,
-                                    color = if (textFieldValue.isEmpty()) Color.Gray else Color.Blue,
-                                    shape = RoundedCornerShape(8.dp)
-                                )
-                                .padding(horizontal = 16.dp, vertical = 12.dp)
-                        ) {
-                            if (textFieldValue.isEmpty()) {
-                                Text(
-                                    text = "Input some text...",
-                                    style = TextStyle(color = Color.Gray, fontSize = 16.sp)
-                                )
-                            }
-                            innerTextField()
+            BasicTextField(
+                value = textFieldValue,
+                onValueChange = { textFieldValue = it },
+                modifier = Modifier
+                    .size(350.dp, 56.dp)
+                    .constrainAs(editText) {
+                        centerHorizontallyTo(parent)
+                        linkTo(top = text.bottom, bottom = button.top)
+                    },
+                textStyle = TextStyle(fontSize = 16.sp, color = Color.White),
+                decorationBox = { innerTextField ->
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                color = Color.Transparent, shape = RoundedCornerShape(8.dp)
+                            )
+                            .border(
+                                width = 1.dp,
+                                color = if (textFieldValue.isEmpty()) Color.Gray else Color.Blue,
+                                shape = RoundedCornerShape(8.dp)
+                            )
+                            .padding(horizontal = 16.dp, vertical = 12.dp)
+                    ) {
+                        if (textFieldValue.isEmpty()) {
+                            Text(
+                                text = "Input some text...",
+                                style = TextStyle(color = Color.Gray, fontSize = 16.sp)
+                            )
                         }
-                    })
-                Button(onClick = {
-                    viewModel.changeText(textFieldValue)
-                }, modifier = Modifier.constrainAs(button) {
-                    centerHorizontallyTo(parent)
-                    linkTo(top = editText.bottom, bottom = parent.bottom)
-                }) {
-                    Text("Change text")
-                }
-            }
-
-            is MainScreenState.LoadingState -> {
-                CircularProgressIndicator(modifier = Modifier.constrainAs(progressIndicator) {
-                    centerTo(parent)
+                        innerTextField()
+                    }
                 })
+            Button(onClick = {
+                viewModel.changeText(textFieldValue)
+            }, modifier = Modifier.constrainAs(button) {
+                centerHorizontallyTo(parent)
+                linkTo(top = editText.bottom, bottom = parent.bottom)
+            }) {
+                Text("Change text")
             }
         }
     }
