@@ -5,12 +5,12 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
-//    alias (libs.plugins.hilt)
+    alias (libs.plugins.hilt)
 }
 
 android {
     namespace = "com.compose.jetpackcomposelearn"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.compose.jetpackcomposelearn"
