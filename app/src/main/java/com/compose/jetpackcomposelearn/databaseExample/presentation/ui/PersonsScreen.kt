@@ -8,7 +8,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -41,7 +40,7 @@ fun PersonsScreen(
                     start.linkTo(parent.start)
                 }) {
             items(persons, key = { it.id }) { person ->
-                Text("${person.name}, age: ${person.age}", modifier = Modifier.padding(16.dp))
+                PersonInfoCard(person)
             }
         }
 
@@ -62,7 +61,7 @@ fun PersonsScreen(
                 true,
                 onDismiss = { showSheet = false },
                 onAdd = { name, age, gender ->
-                    viewModel.addPerson(Person(name = name, age = age.toInt(), gender = true))
+                    viewModel.addPerson(Person(name = name, age = age.toInt(), gender = gender))
                     showSheet = false
                 })
         }

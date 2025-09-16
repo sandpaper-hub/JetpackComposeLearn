@@ -1,9 +1,13 @@
 package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -11,10 +15,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -64,7 +68,30 @@ fun AddPersonBottomSheet(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
 
-
+                Column {
+                    Text("Gender")
+                    Row(modifier = Modifier.selectableGroup()) {
+                        Log.d("GENDER", "$gender")
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.selectable(
+                                selected = !gender,
+                                onClick = { gender = false})
+                        ) {
+                            RadioButton(selected = !gender, null)
+                            Text("Male")
+                        }
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.selectable(
+                                selected = gender,
+                                onClick = { gender = true })
+                        ) {
+                            RadioButton(selected = gender, null)
+                            Text("Female")
+                        }
+                    }
+                }
 
                 Button(
                     { onAdd(name, age, gender) }, modifier = Modifier.align(Alignment.End)
