@@ -28,7 +28,7 @@ fun PersonsScreen(
     modifier: Modifier, viewModel: PersonsViewModel = hiltViewModel()
 ) {
     val persons = viewModel.uiState.collectAsState().value
-    var showDialog by remember { mutableStateOf(false) }
+    var showSheet by remember { mutableStateOf(false) }
 
     ConstraintLayout(modifier.then(Modifier.fillMaxSize())) {
         val (lazyColumn, addButton) = createRefs()
@@ -47,7 +47,7 @@ fun PersonsScreen(
 
         FloatingActionButton(
             onClick = {
-                showDialog = true
+                showSheet = true
             }, modifier = Modifier
                 .constrainAs(addButton) {
                     end.linkTo(parent.end)
@@ -57,14 +57,14 @@ fun PersonsScreen(
             Icon(Icons.Default.Add, contentDescription = "Add")
         }
 
-        if (showDialog) {
-            AddPersonDialog(
-                onDismiss = { showDialog = false },
-                onAdd = { name ->
-                    viewModel.addPerson(Person(name = name, age = 12, gender = true))
-                    showDialog = false
-                }
-            )
+        if (showSheet) {
+            AddPersonBottomSheet(
+                true,
+                onDismiss = { showSheet = false },
+                onAdd = { name, age, gender ->
+                    viewModel.addPerson(Person(name = name, age = age.toInt(), gender = true))
+                    showSheet = false
+                })
         }
     }
 }
