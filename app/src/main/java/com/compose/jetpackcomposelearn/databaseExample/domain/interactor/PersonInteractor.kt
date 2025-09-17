@@ -1,6 +1,6 @@
 package com.compose.jetpackcomposelearn.databaseExample.domain.interactor
 
-import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.Person
+import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 import kotlinx.coroutines.flow.Flow
 
 interface PersonInteractor {

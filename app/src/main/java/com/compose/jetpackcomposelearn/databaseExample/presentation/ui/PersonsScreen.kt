@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.Person
+import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 import com.compose.jetpackcomposelearn.databaseExample.presentation.viewModel.PersonsViewModel
 
 @Composable

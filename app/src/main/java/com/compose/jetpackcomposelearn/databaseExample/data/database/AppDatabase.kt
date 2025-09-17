@@ -3,10 +3,10 @@ package com.compose.jetpackcomposelearn.databaseExample.data.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.compose.jetpackcomposelearn.databaseExample.data.database.dao.PersonsDao
-import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.Person
+import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.PersonEntity
 
 @Database(
-    entities = [Person::class],
+    entities = [PersonEntity::class],
     version = 1,
     exportSchema = true
 )

@@ -3,8 +3,8 @@ package com.compose.jetpackcomposelearn.databaseExample.presentation.viewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.Person
 import com.compose.jetpackcomposelearn.databaseExample.domain.interactor.PersonInteractor
+import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn

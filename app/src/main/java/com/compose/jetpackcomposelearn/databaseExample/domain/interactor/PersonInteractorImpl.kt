@@ -1,6 +1,6 @@
 package com.compose.jetpackcomposelearn.databaseExample.domain.interactor
 
-import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.Person
+import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 import com.compose.jetpackcomposelearn.databaseExample.domain.repository.PersonRepository
 import javax.inject.Inject
 

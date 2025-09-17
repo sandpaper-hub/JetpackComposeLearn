@@ -4,19 +4,19 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.Person
+import com.compose.jetpackcomposelearn.databaseExample.data.database.entities.PersonEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PersonsDao {
     @Query("SELECT * FROM people ORDER BY createdAt DESC")
-    fun observeAll(): Flow<List<Person>>
+    fun observeAll(): Flow<List<PersonEntity>>
 
     @Query("SELECT * FROM people WHERE id = :id")
-    suspend fun getById(id: Long): Person?
+    suspend fun getById(id: Long): PersonEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun add(person: Person): Long
+    suspend fun add(person: PersonEntity): Long
 
     @Query("DELETE FROM people WHERE id = :personId")
     suspend fun delete(personId: Long)

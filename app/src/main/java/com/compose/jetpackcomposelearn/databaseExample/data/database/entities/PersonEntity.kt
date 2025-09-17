@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
     tableName = "people",
     indices = [Index(value = ["name"], unique = false)]
 )
-data class Person(
+data class PersonEntity(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val name: String,
     val age: Int,
