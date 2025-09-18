@@ -2,8 +2,6 @@ package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -36,9 +34,14 @@ fun PersonsScreen(
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
             .nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = { TopAppBar(scrollBehavior) { viewModel.clearDatabase() } }) { innerPadding ->
+        topBar = {
+            PersonTopAppBar(
+                scrollBehavior, clearDatabaseAction = viewModel::clearDatabase
+            )
+        }) { innerPadding ->
         ConstraintLayout(
             Modifier
                 .padding(innerPadding)
@@ -46,22 +49,19 @@ fun PersonsScreen(
         ) {
             val (lazyColumn, addButton) = createRefs()
 
-            LazyColumn(
+            PersonsList(
+                persons,
+                onDelete = {person -> viewModel.removePerson(person)},
                 modifier = Modifier
-                    .fillMaxSize()
                     .constrainAs(lazyColumn) {
-                        top.linkTo(parent.top)
-                        start.linkTo(parent.start)
-                    }) {
-                items(persons, key = { it.id }) { person ->
-                    PersonInfoCard(person)
-                }
-            }
+                        linkTo(start = parent.start, end = parent.end)
+                        linkTo(top = parent.top, bottom = parent.bottom)
+                    })
 
             FloatingActionButton(
                 onClick = {
-                    showSheet = true
-                }, modifier = Modifier
+                showSheet = true
+            }, modifier = Modifier
                     .constrainAs(addButton) {
                         end.linkTo(parent.end)
                         bottom.linkTo(parent.bottom)

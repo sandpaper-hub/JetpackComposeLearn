@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Suppress("FunctionName")
-fun TopAppBar(
+fun PersonTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior,
     clearDatabaseAction: () -> Unit
 ) {

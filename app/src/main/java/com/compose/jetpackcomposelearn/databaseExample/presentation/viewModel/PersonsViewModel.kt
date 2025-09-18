@@ -13,8 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PersonsViewModel @Inject constructor(
-    private val personInteractor: PersonInteractor,
-    savedStateHandle: SavedStateHandle
+    private val personInteractor: PersonInteractor, savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     val uiState = personInteractor.observeAll()
         .stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
@@ -27,4 +26,10 @@ class PersonsViewModel @Inject constructor(
     }
 
     fun clearDatabase() = viewModelScope.launch { personInteractor.clearDatabase() }
+
+    fun removePerson(person: Person) {
+        viewModelScope.launch {
+            personInteractor.deletePerson(person.id)
+        }
+    }
 }
