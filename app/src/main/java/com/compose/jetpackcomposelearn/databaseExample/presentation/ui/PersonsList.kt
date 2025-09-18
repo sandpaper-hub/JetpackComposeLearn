@@ -12,7 +12,6 @@ import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 fun PersonsList(
     persons: List<Person>,
     onDelete: (Person) -> Unit,
-    modifier: Modifier
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(persons, key = { it.id }) { person ->
