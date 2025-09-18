@@ -21,11 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackComposeLearnTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MainExample(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                PersonsScreen()
             }
         }
     }
@@ -34,7 +30,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 @Suppress("FunctionName")
 fun MainExample(modifier: Modifier = Modifier) {
-    PersonsScreen(modifier)
+
 }
 
 @Preview(name = "Galaxy S23 Plus", widthDp = 393, heightDp = 851)

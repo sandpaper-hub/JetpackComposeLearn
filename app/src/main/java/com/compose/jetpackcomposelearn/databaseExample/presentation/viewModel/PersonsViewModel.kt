@@ -25,4 +25,6 @@ class PersonsViewModel @Inject constructor(
             personInteractor.addPerson(person)
         }
     }
+
+    fun clearDatabase() = viewModelScope.launch { personInteractor.clearDatabase() }
 }
