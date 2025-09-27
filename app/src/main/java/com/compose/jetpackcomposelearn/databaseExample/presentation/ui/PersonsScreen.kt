@@ -47,7 +47,7 @@ fun PersonsScreen(
                 .padding(innerPadding)
                 .then(Modifier.fillMaxSize())
         ) {
-            val (lazyColumn, addButton) = createRefs()
+            val (lazyColumn, addButton, searchBar) = createRefs()
 
             PersonsList(
                 persons,
@@ -57,6 +57,12 @@ fun PersonsScreen(
                         linkTo(start = parent.start, end = parent.end)
                         linkTo(top = parent.top, bottom = parent.bottom)
                     })
+
+            PersonSearchBar(modifier =  Modifier.constrainAs(searchBar) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
+                .padding(top = 12.dp))
 
             FloatingActionButton(
                 onClick = {
