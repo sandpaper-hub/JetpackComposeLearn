@@ -20,6 +20,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 import com.compose.jetpackcomposelearn.databaseExample.presentation.viewModel.PersonsViewModel
 
@@ -32,6 +33,7 @@ fun PersonsScreen(
     val persons = viewModel.uiState.collectAsState().value
     var showSheet by remember { mutableStateOf(false) }
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val people by viewModel.persons.collectAsStateWithLifecycle()
 
     Scaffold(
         modifier = Modifier
@@ -51,23 +53,26 @@ fun PersonsScreen(
 
             PersonsList(
                 persons,
-                onDelete = {person -> viewModel.removePerson(person)},
+                onDelete = { person -> viewModel.removePerson(person) },
                 modifier = Modifier
                     .constrainAs(lazyColumn) {
                         linkTo(start = parent.start, end = parent.end)
                         linkTo(top = parent.top, bottom = parent.bottom)
                     })
 
-            PersonSearchBar(modifier =  Modifier.constrainAs(searchBar) {
-                start.linkTo(parent.start)
-                end.linkTo(parent.end)
-            }
-                .padding(top = 12.dp))
+            PersonSearchBar(modifier = Modifier
+                .constrainAs(searchBar) {
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                }
+                .padding(top = 12.dp),
+                people = people,
+                onQueryChange = viewModel::onQueryChange)
 
             FloatingActionButton(
                 onClick = {
-                showSheet = true
-            }, modifier = Modifier
+                    showSheet = true
+                }, modifier = Modifier
                     .constrainAs(addButton) {
                         end.linkTo(parent.end)
                         bottom.linkTo(parent.bottom)

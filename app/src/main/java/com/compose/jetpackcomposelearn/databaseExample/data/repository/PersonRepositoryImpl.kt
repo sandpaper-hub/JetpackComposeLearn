@@ -15,9 +15,8 @@ class PersonRepositoryImpl @Inject constructor(
     override fun observeAll(): Flow<List<Person>> =
         dao.observeAll().map { it.map(personDbConverter::map) }
 
-    override suspend fun getPersonById(id: Long): Person {
-        return personDbConverter.map(dao.getById(id))
-    }
+    override fun getPersonsByName(personName: String): Flow<List<Person>> =
+        dao.getPersonsByName(personName).map { list -> list.map(personDbConverter::map) }
 
     override suspend fun addPerson(person: Person): Long {
         return dao.add(personDbConverter.map(person))

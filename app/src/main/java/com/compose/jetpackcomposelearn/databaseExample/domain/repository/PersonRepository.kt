@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface PersonRepository {
     fun observeAll(): Flow<List<Person>>
-    suspend fun getPersonById(id: Long): Person
+    fun getPersonsByName(personName: String): Flow<List<Person>>
     suspend fun addPerson(person: Person): Long
     suspend fun deletePerson(id: Long)
     suspend fun clearDatabase()
