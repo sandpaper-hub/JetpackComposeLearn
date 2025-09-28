@@ -3,6 +3,7 @@ package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -23,26 +24,31 @@ import androidx.compose.ui.text.style.TextOverflow
 @Suppress("FunctionName")
 fun PersonTopAppBar(
     scrollBehavior: TopAppBarScrollBehavior,
-    clearDatabaseAction: () -> Unit
+    clearDatabaseAction: () -> Unit,
+    onSearchClick: () -> Unit
 ) {
-    var expanded by remember { mutableStateOf(false) }
+    var menuExpanded by remember { mutableStateOf(false) }
 
     TopAppBar(
         title = { Text("Persons", maxLines = 1, overflow = TextOverflow.Ellipsis) },
         actions = {
+            IconButton(onClick = onSearchClick) {
+                Icon(Icons.Default.Search, contentDescription = "Search")
+            }
+
             Box {
-                IconButton(onClick = { expanded = true }) {
+                IconButton(onClick = { menuExpanded = true }) {
                     Icon(Icons.Default.MoreVert, contentDescription = "Context menu")
                 }
             }
 
             DropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }) {
+                expanded = menuExpanded,
+                onDismissRequest = { menuExpanded = false }) {
                 DropdownMenuItem(
                     onClick = {
                         clearDatabaseAction()
-                        expanded = false
+                        menuExpanded = false
                     },
                     text = { Text("Clear data") })
             }

@@ -20,14 +20,13 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.PlainTooltip
-import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
+import androidx.compose.material3.SearchBarState
 import androidx.compose.material3.SearchBarValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.TooltipAnchorPosition
 import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
-import androidx.compose.material3.rememberSearchBarState
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
@@ -45,11 +44,11 @@ import kotlinx.coroutines.launch
 @Composable
 @Suppress("FunctionName")
 fun PersonSearchBar(
-    modifier: Modifier,
+    state: SearchBarState,
     people: List<Person>,
-    onQueryChange: (String) -> Unit
+    onQueryChange: (String) -> Unit,
+    modifier: Modifier
 ) {
-    val searchBarState = rememberSearchBarState()
     val textFieldState = rememberTextFieldState()
     val scope = rememberCoroutineScope()
 
@@ -62,18 +61,18 @@ fun PersonSearchBar(
     val inputField =
         @Composable {
             SearchBarDefaults.InputField(
-                searchBarState = searchBarState,
+                searchBarState = state,
                 textFieldState = textFieldState,
                 onSearch = {
                     scope.launch {
-                        searchBarState.animateToCollapsed()
+                        state.animateToCollapsed()
                     }
                 },
                 placeholder = {
                     Text(modifier = Modifier.clearAndSetSemantics {}, text = "Search")
                 },
                 leadingIcon = {
-                    if (searchBarState.currentValue == SearchBarValue.Expanded) {
+                    if (state.currentValue == SearchBarValue.Expanded) {
                         TooltipBox(
                             positionProvider =
                                 TooltipDefaults.rememberTooltipPositionProvider(
@@ -81,7 +80,7 @@ fun PersonSearchBar(
                                 ), tooltip = { PlainTooltip { Text("Back") } },
                             state = rememberTooltipState()
                         ) {
-                            IconButton(onClick = { scope.launch { searchBarState.animateToCollapsed() } }) {
+                            IconButton(onClick = { scope.launch { state.animateToCollapsed() } }) {
                                 Icon(
                                     Icons.AutoMirrored.Default.ArrowBack,
                                     contentDescription = "Back"
@@ -96,12 +95,11 @@ fun PersonSearchBar(
             )
         }
 
-    SearchBar(state = searchBarState, inputField = inputField, modifier = modifier)
-    ExpandedFullScreenSearchBar(state = searchBarState, inputField = inputField) {
+    ExpandedFullScreenSearchBar(state = state, inputField = inputField) {
         SearchResultsList(people = people,
             onPersonClick = {person ->
                 textFieldState.setTextAndPlaceCursorAtEnd(person.name)
-                scope.launch { searchBarState.animateToCollapsed() }
+                scope.launch { state.animateToCollapsed() }
             })
     }
 }
