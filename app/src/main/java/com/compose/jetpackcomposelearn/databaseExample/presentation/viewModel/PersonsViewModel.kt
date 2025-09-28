@@ -1,6 +1,5 @@
 package com.compose.jetpackcomposelearn.databaseExample.presentation.viewModel
 
-import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
