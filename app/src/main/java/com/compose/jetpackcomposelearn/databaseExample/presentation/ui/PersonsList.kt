@@ -12,6 +12,7 @@ import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 fun PersonsList(
     persons: List<Person>,
     onDelete: (Person) -> Unit,
+    onPersonClick: (Person) -> Unit,
     modifier: Modifier
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -19,7 +20,7 @@ fun PersonsList(
             SwipeToDeleteContainer(
                 onConfirmed = { onDelete(person) }
             ) { fraction, target ->
-                PersonInfoCard(person)
+                PersonInfoCard(person, onPersonClick)
             }
         }
     }

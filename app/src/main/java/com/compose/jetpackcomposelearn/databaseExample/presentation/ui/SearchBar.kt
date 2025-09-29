@@ -47,6 +47,7 @@ fun PersonSearchBar(
     state: SearchBarState,
     people: List<Person>,
     onQueryChange: (String) -> Unit,
+    onPersonClick: (Person) -> Unit,
     modifier: Modifier
 ) {
     val textFieldState = rememberTextFieldState()
@@ -98,6 +99,7 @@ fun PersonSearchBar(
     ExpandedFullScreenSearchBar(state = state, inputField = inputField) {
         SearchResultsList(people = people,
             onPersonClick = {person ->
+                onPersonClick(person)
                 textFieldState.setTextAndPlaceCursorAtEnd(person.name)
                 scope.launch { state.animateToCollapsed() }
             })

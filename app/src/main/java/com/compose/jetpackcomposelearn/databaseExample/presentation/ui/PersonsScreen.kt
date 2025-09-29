@@ -46,6 +46,7 @@ fun PersonsScreen(
     val searchBarState = rememberSearchBarState()
     val textFieldState = rememberTextFieldState()
     val scope = rememberCoroutineScope()
+    var selectedPerson by remember { mutableStateOf<Person?>(null) }
 
     LaunchedEffect(textFieldState) {
         snapshotFlow { textFieldState.text.toString() }
@@ -74,6 +75,7 @@ fun PersonsScreen(
                 state = searchBarState,
                 people = people,
                 onQueryChange = viewModel::onQueryChange,
+                onPersonClick = {person -> selectedPerson = person},
                 modifier = Modifier
                     .constrainAs(searchBar) {
                         linkTo(parent.start, parent.end)
@@ -86,6 +88,7 @@ fun PersonsScreen(
             PersonsList(
                 persons,
                 onDelete = { person -> viewModel.removePerson(person) },
+                onPersonClick = {person -> selectedPerson = person},
                 modifier = Modifier
                     .constrainAs(lazyColumn) {
                         linkTo(start = parent.start, end = parent.end)
@@ -111,6 +114,10 @@ fun PersonsScreen(
                         viewModel.addPerson(Person(name = name, age = age.toInt(), gender = gender))
                         showSheet = false
                     })
+            }
+
+            selectedPerson?.let { person ->
+                PersonDialogDetail(person, onDismiss = {selectedPerson = null})
             }
         }
     }

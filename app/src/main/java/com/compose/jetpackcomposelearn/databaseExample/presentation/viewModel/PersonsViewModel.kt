@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -39,7 +40,7 @@ class PersonsViewModel @Inject constructor(
             .map { it.trim() }
             .distinctUntilChanged()
             .flatMapLatest { q ->
-                if (q.isBlank()) personInteractor.observeAll()
+                if (q.isBlank()) flowOf(emptyList())
                 else personInteractor.getPersonByName(q)
             }
             .stateIn(

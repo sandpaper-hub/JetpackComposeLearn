@@ -18,13 +18,14 @@ import com.compose.jetpackcomposelearn.databaseExample.domain.model.Person
 @Composable
 @Suppress("FunctionName")
 fun PersonInfoCard(
-    person: Person
+    person: Person,
+    onPersonClick: (Person) -> Unit
 ) {
     Card(
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 4.dp)
             .fillMaxWidth(),
-        onClick = {},
+        onClick = { onPersonClick(person) },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
         colors = CardDefaults.cardColors(
@@ -38,7 +39,8 @@ fun PersonInfoCard(
             Text(person.age.toString(), style = MaterialTheme.typography.labelSmall)
             Spacer(Modifier.height(4.dp))
             Text(
-                if (!person.gender) "Male" else "Female", style = MaterialTheme.typography.labelSmall
+                if (!person.gender) "Male" else "Female",
+                style = MaterialTheme.typography.labelSmall
             )
         }
     }
