@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
+package com.compose.jetpackcomposelearn.databaseExample.presentation.ui.personScreen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

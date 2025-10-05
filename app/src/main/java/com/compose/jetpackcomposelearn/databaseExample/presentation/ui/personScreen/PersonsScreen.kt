@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
+package com.compose.jetpackcomposelearn.databaseExample.presentation.ui.personScreen
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
 @Composable
 @Suppress("FunctionName")
 fun PersonsScreen(
+    onOpenDetails: (personId: Long) -> Unit,
     viewModel: PersonsViewModel = hiltViewModel()
 ) {
     val persons = viewModel.uiState.collectAsState().value
@@ -75,7 +76,7 @@ fun PersonsScreen(
                 state = searchBarState,
                 people = people,
                 onQueryChange = viewModel::onQueryChange,
-                onPersonClick = {person -> selectedPerson = person},
+                onPersonClick = {person -> onOpenDetails(person.id)},
                 modifier = Modifier
                     .constrainAs(searchBar) {
                         linkTo(parent.start, parent.end)
@@ -88,7 +89,7 @@ fun PersonsScreen(
             PersonsList(
                 persons,
                 onDelete = { person -> viewModel.removePerson(person) },
-                onPersonClick = {person -> selectedPerson = person},
+                onPersonClick = {person -> onOpenDetails(person.id)},
                 modifier = Modifier
                     .constrainAs(lazyColumn) {
                         linkTo(start = parent.start, end = parent.end)
@@ -114,10 +115,6 @@ fun PersonsScreen(
                         viewModel.addPerson(Person(name = name, age = age.toInt(), gender = gender))
                         showSheet = false
                     })
-            }
-
-            selectedPerson?.let { person ->
-                PersonDialogDetail(person, onDismiss = {selectedPerson = null})
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
+package com.compose.jetpackcomposelearn.databaseExample.presentation.ui.personScreen
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn

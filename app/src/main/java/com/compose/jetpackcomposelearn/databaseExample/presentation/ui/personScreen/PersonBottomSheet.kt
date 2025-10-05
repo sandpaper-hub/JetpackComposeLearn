@@ -1,4 +1,4 @@
-package com.compose.jetpackcomposelearn.databaseExample.presentation.ui
+package com.compose.jetpackcomposelearn.databaseExample.presentation.ui.personScreen
 
 import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
