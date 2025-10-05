@@ -18,6 +18,10 @@ class PersonRepositoryImpl @Inject constructor(
     override fun getPersonsByName(personName: String): Flow<List<Person>> =
         dao.getPersonsByName(personName).map { list -> list.map(personDbConverter::map) }
 
+    override suspend fun getPersonById(personId: Long): Person {
+        return personDbConverter.map(dao.getPersonByID(personId))
+    }
+
     override suspend fun addPerson(person: Person): Long {
         return dao.add(personDbConverter.map(person))
     }

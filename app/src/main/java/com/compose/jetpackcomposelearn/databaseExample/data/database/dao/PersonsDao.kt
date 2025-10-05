@@ -12,8 +12,15 @@ interface PersonsDao {
     @Query("SELECT * FROM people ORDER BY createdAt DESC")
     fun observeAll(): Flow<List<PersonEntity>>
 
-    @Query("SELECT * FROM people WHERE name = :personName")
+    @Query(
+        """SELECT * FROM people
+            WHERE LOWER(name) LIKE '%' || LOWER(:personName) || '%'
+            ORDER BY createdAt DESC"""
+    )
     fun getPersonsByName(personName: String): Flow<List<PersonEntity>>
+
+    @Query("SELECT * FROM people WHERE id = :personId")
+    suspend fun getPersonByID(personId: Long): PersonEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun add(person: PersonEntity): Long

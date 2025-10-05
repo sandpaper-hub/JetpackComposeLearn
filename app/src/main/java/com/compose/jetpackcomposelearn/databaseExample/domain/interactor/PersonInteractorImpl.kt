@@ -12,6 +12,10 @@ class PersonInteractorImpl @Inject constructor(
     override fun getPersonByName(personName: String): Flow<List<Person>> =
         personRepository.getPersonsByName(personName)
 
+    override suspend fun getPersonById(personId: Long): Person {
+        return personRepository.getPersonById(personId)
+    }
+
     override suspend fun addPerson(person: Person) = personRepository.addPerson(person)
     override suspend fun deletePerson(id: Long) = personRepository.deletePerson(id)
     override suspend fun clearDatabase() = personRepository.clearDatabase()

@@ -25,8 +25,7 @@ fun NavGraphBuilder.detailGraph() {
     composable(
         route = Routes.DETAILS_SCREEN,
         arguments = listOf(navArgument("personId") { type = NavType.LongType })
-    ) { backStackEntry ->
-        val personId = backStackEntry.arguments!!.getLong("personId")
-        DetailScreen(personId)
+    ) {
+        DetailScreen()
     }
 }
