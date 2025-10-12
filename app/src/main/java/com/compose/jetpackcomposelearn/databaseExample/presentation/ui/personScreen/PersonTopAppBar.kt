@@ -28,26 +28,29 @@ fun PersonTopAppBar(
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
 
-    CommonTopAppBar("Persons", scrollBehavior, actions = {
-        IconButton(onClick = onSearchClick) {
-            Icon(Icons.Default.Search, contentDescription = "Search")
-        }
-
-        Box {
-            IconButton(onClick = { menuExpanded = true }) {
-                Icon(Icons.Default.MoreVert, contentDescription = "Context menu")
+    CommonTopAppBar(
+        title = "Persons",
+        scrollBehavior = scrollBehavior,
+        actions = {
+            IconButton(onClick = onSearchClick) {
+                Icon(Icons.Default.Search, contentDescription = "Search")
             }
-        }
 
-        DropdownMenu(
-            expanded = menuExpanded,
-            onDismissRequest = { menuExpanded = false }) {
-            DropdownMenuItem(
-                onClick = {
-                    clearDatabaseAction()
-                    menuExpanded = false
-                },
-                text = { Text("Clear data") })
-        }
-    })
+            Box {
+                IconButton(onClick = { menuExpanded = true }) {
+                    Icon(Icons.Default.MoreVert, contentDescription = "Context menu")
+                }
+            }
+
+            DropdownMenu(
+                expanded = menuExpanded,
+                onDismissRequest = { menuExpanded = false }) {
+                DropdownMenuItem(
+                    onClick = {
+                        clearDatabaseAction()
+                        menuExpanded = false
+                    },
+                    text = { Text("Clear data") })
+            }
+        })
 }

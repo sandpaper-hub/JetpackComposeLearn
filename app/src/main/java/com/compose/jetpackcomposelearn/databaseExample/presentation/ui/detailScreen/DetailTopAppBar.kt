@@ -9,7 +9,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,27 +21,33 @@ import com.compose.jetpackcomposelearn.databaseExample.presentation.ui.CommonTop
 @Suppress("FunctionName")
 fun DetailTopAppBar(
     personName: String,
-    scrollBehavior: TopAppBarScrollBehavior,
-    onEdit: () -> Unit
+    onEditOpen: () -> Unit,
+    onBackNavigation: () -> Unit
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
 
-    CommonTopAppBar(personName, scrollBehavior, actions = {
-        Box {
-            IconButton(onClick = { menuExpanded = true }) {
-                Icon(Icons.Default.MoreVert, contentDescription = "Context menu")
-            }
-        }
 
-        DropdownMenu(
-            expanded = menuExpanded,
-            onDismissRequest = { menuExpanded = false }) {
-            DropdownMenuItem(
-                onClick = {
-                    onEdit()
-                },
-                text = { Text("Edit profile") }
-            )
-        }
-    })
+    CommonTopAppBar(
+        navigationAction = onBackNavigation,
+        title = personName,
+        scrollBehavior = null,
+        actions = {
+            Box {
+                IconButton(onClick = { menuExpanded = true }) {
+                    Icon(Icons.Default.MoreVert, contentDescription = "Context menu")
+                }
+            }
+
+            DropdownMenu(
+                expanded = menuExpanded,
+                onDismissRequest = { menuExpanded = false }) {
+                DropdownMenuItem(
+                    onClick = {
+                        menuExpanded = false
+                        onEditOpen()
+                    },
+                    text = { Text("Edit profile") }
+                )
+            }
+        })
 }

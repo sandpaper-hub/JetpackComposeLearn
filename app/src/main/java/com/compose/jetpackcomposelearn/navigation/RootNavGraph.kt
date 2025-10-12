@@ -13,6 +13,9 @@ fun RootNavGraph() {
         navController = navController, startDestination = Routes.PERSONS_SCREEN
     ) {
         personsGraph(onOpenDetails = { personId -> navController.navigate(Routes.details(personId)) })
-        detailGraph()
+        detailGraph(
+            onBackNavigation = { navController.popBackStack() },
+            onOpenEdit = { personId -> navController.navigate(Routes.edit(personId)) })
+        editGraph(onBackNavigation = { navController.popBackStack() })
     }
 }
