@@ -7,7 +7,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,7 +29,6 @@ fun DetailScreen(
     onBackNavigation: () -> Unit,
     onOpenEdit: (personId: Long) -> Unit
 ) {
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val ui by viewModel.ui.collectAsStateWithLifecycle()
 
     var id by rememberSaveable(ui.data?.id) { mutableLongStateOf(0) }
